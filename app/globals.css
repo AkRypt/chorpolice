@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Midnight slate court + saffron gold — not purple, not cream-serif */
+  --CP-ink: #070b10;
+  --CP-deep: #101820;
+  --CP-panel: rgba(18, 28, 38, 0.82);
+  --CP-border: rgba(232, 184, 74, 0.16);
+  --CP-text: #f3efe6;
+  --CP-muted: #9aabbc;
+  --CP-accent: #e8b84a;
+  --CP-accent-2: #c98a2e;
+  --CP-catch: #ff6b5a;
+  --CP-safe: #5eb0ff;
+  --CP-glow: rgba(232, 184, 74, 0.22);
+}
+
+body {
+  color: var(--CP-text);
+  background: var(--CP-ink);
+  min-height: 100dvh;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.CP-shell {
+  min-height: 100dvh;
+  background:
+    radial-gradient(1000px 520px at 12% -10%, rgba(232, 184, 74, 0.16), transparent 55%),
+    radial-gradient(880px 460px at 100% 0%, rgba(94, 176, 255, 0.1), transparent 50%),
+    radial-gradient(720px 480px at 50% 120%, rgba(255, 107, 90, 0.08), transparent 48%),
+    linear-gradient(168deg, #05080c 0%, #101820 46%, #070b10 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.CP-shell::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  mix-blend-mode: soft-light;
+}
+
+.CP-panel {
+  background: var(--CP-panel);
+  border: 1px solid var(--CP-border);
+  backdrop-filter: blur(12px);
+}
+
+.CP-brand {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(118deg, #f3efe6 0%, #e8b84a 52%, #c98a2e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.CP-btn {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3.5 text-base font-semibold transition active:scale-[0.98] disabled:opacity-45 disabled:pointer-events-none;
+  background: linear-gradient(135deg, var(--CP-accent) 0%, #f0c96a 55%, var(--CP-accent-2) 100%);
+  color: #120c04;
+  box-shadow: 0 10px 28px var(--CP-glow);
+}
+
+.CP-btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3.5 text-base font-semibold transition active:scale-[0.98] disabled:opacity-45;
+  background: rgba(243, 239, 230, 0.05);
+  border: 1px solid var(--CP-border);
+  color: var(--CP-text);
+}
+
+.CP-btn-danger {
+  @apply inline-flex items-center justify-center rounded-xl px-5 py-3.5 text-base font-semibold transition active:scale-[0.98] disabled:opacity-45;
+  background: linear-gradient(135deg, #ff6b5a 0%, #e84a3a 100%);
+  color: #fff;
+}
+
+.CP-input {
+  @apply w-full rounded-xl px-4 py-3.5 text-base outline-none transition;
+  background: rgba(5, 10, 16, 0.55);
+  border: 1px solid var(--CP-border);
+  color: var(--CP-text);
+}
+
+.CP-input:focus {
+  border-color: rgba(232, 184, 74, 0.55);
+  box-shadow: 0 0 0 3px rgba(232, 184, 74, 0.16);
+}
+
+.CP-chip {
+  @apply rounded-xl px-3 py-2 text-left text-sm transition border;
+  background: rgba(5, 10, 16, 0.4);
+  border-color: var(--CP-border);
+}
+
+.CP-chip-on {
+  border-color: rgba(232, 184, 74, 0.55);
+  background: rgba(232, 184, 74, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(232, 184, 74, 0.2);
+}
+
+.CP-role {
+  @apply w-full rounded-2xl px-4 py-5 text-center transition border;
+  background: rgba(5, 10, 16, 0.5);
+  border-color: var(--CP-border);
+}
+
+.CP-suspect {
+  @apply w-full rounded-2xl px-4 py-4 text-left text-lg font-semibold transition border active:scale-[0.99];
+  background: rgba(5, 10, 16, 0.45);
+  border-color: var(--CP-border);
+}
+
+.CP-suspect-on {
+  border-color: rgba(255, 107, 90, 0.7);
+  background: rgba(255, 107, 90, 0.14);
+  box-shadow: 0 0 0 1px rgba(255, 107, 90, 0.25);
+}
