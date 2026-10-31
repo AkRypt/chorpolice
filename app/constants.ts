@@ -1,5 +1,5 @@
 export const constants = {
-  siteUrl: "https://chorpolice.vercel.app",
+  siteUrl: "https://chorpolice-iota.vercel.app",
   lobbyCodeLength: 5,
   minPlayers: 4,
   maxPlayers: 4,
